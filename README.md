@@ -1,27 +1,23 @@
-# SingleFileComponent
+# FrontEnd demo for NHL schedules/games etc
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
 ## Development server
 
+Run `npm i` to install node components.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Data is fetched from backend https://nhl-data.herokuapp.com.
+It's a node app.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Database is located in https://www.cloudclusters.io/
 
-## Build
+ETL is done in https://nhlimporter.herokuapp.com/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ETL is a swift/vapor app.
+It collects data from https://statsapi.web.nhl.com
 
-## Running unit tests
+Game events are processed and evaluated to points.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+23.1. - 26.1.2020 is an All Starts weekend, no real games to evaluate.
