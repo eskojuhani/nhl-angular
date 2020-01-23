@@ -1,0 +1,93 @@
+<div class="entity-section entity-section-light">
+  <div class="container">
+    <div class="row row-centered">
+      <div class="column-header">
+        <h1>NHL - Angular</h1>
+      </div>
+    </div>
+    <div class="row row-centered">
+      <div class="column-header">
+        <span (click)="selectDate(-1)"><i class="fa fa-hand-o-left"></i></span>
+          {{ searchTerm }}
+        <span (click)="selectDate(1)"><i class="fa fa-hand-o-right"></i></span>
+      </div>
+    </div>
+    <div class="row row-centered">
+      <div class="col-md-12">
+        <div class="entity-box" *ngFor="let game of scheduledGames" (click)="gameSelected(game)">
+          <div class="field-date" [innerHtml]="game.gameDate | date:'yyyy-MM-dd'"></div>
+          <div class="field-name" [innerHtml]="game.homeTeamName"></div>
+          <div class="field-name" [innerHtml]="'vs'"></div>
+          <div class="field-name" [innerHtml]="game.awayTeamName"></div>
+          <div *ngIf="game.homeGameInfo">
+            <span>{{game.homeGameInfo}}</span>
+          </div>
+          <div *ngIf="game.awayGameInfo">
+            <span>{{game.awayGameInfo}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectedGame" class="entity-section entity-section-dark">
+  <div class="container">
+    <div class="row row-centered">
+      <app-canvas [game]="selectedGame" [home]="homePerformance" [away]="awayPerformance"></app-canvas>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectedGame" class="entity-section entity-section-light">
+  <div class="container">
+    <div *ngIf="gameEvents" class="row row-centered">
+      <div class="col-md-12">
+        <div *ngFor="let item of gameEvents" class="event-box">
+          <span [innerHtml]="item.description"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="entity-section entity-section-light">
+  <div *ngIf="selectedGame" class="container">
+    <div class="row row-centered">
+      <div class="column-header">
+          Performances
+      </div>
+    </div>
+    <div class="row row-centered">
+      <div class="col-md-6">
+        <div [innerHtml]="selectedGame.homeTeamName"></div>
+      </div>
+      <div class="col-md-6">
+        <div [innerHtml]="selectedGame.awayTeamName"></div>
+      </div>
+    </div>
+    <div class="row row-centered">
+      <div class="col-md-6">
+        <div *ngIf="homePerformance" class="entity-list">
+            <div *ngFor="let item of homePerformance" class="entity-box">
+              <div [innerHtml]="item.gameDate"></div>
+              <div [innerHtml]="item.location"></div>
+              <div [innerHtml]="item.performance"></div>
+              <div [innerHtml]="item.gameMovingAvg3"></div>
+              <div [innerHtml]="item.gameMovingAvg10"></div>
+              <div [innerHtml]="item.outcome"></div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div *ngIf="awayPerformance" class="entity-list">
+            <div *ngFor="let item of awayPerformance" class="entity-box">
+              <div [innerHtml]="item.gameDate"></div>
+              <div [innerHtml]="item.location"></div>
+              <div [innerHtml]="item.performance"></div>
+              <div [innerHtml]="item.gameMovingAvg3"></div>
+              <div [innerHtml]="item.gameMovingAvg10"></div>
+              <div [innerHtml]="item.outcome"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
