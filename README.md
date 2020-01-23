@@ -21,3 +21,5 @@ It collects data from https://statsapi.web.nhl.com
 Game events are processed and evaluated to points.
 
 23.1. - 26.1.2020 is an All Starts weekend, no real games to evaluate.
+
+![screenshot](https://github.com/eskojuhani/NHL-angular/blob/master/screenshot.png?raw=true?raw=true "Screenshot")
